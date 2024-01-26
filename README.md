@@ -1,4 +1,4 @@
-# fork of pseuxide - react inspector for docker users
+# pseuxide's fork - react inspector for docker users
 
 A version which applied shitty workaround of docker path problem for my personal use. It's a dumb way but it's fine as long as it works.
 
