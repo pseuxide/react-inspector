@@ -1,6 +1,6 @@
 # pseuxide's fork - react inspector for docker users
 
-A version which applied shitty workaround of docker path problem for my personal use. It's a dumb way but it's fine as long as it works.
+A version which applied shitty workaround of docker path problem for my personal use. It's a dumb way but I'd b ok as long as it works.
 
 As [this issue](https://github.com/hand-dot/react-inspector/issues/3) from original repo states, when u involve docker in ur development, react-inspector might misunderstand the file path depend on ur Dockerfile setting.
 
