@@ -10,7 +10,7 @@ Specifying the domain, the replacing only takes place when current tab contains 
 
 This image is an example of my configuration which will alter the part `/app` with `/Users/pseuxide/works/instabase` of the file path only when im working on `*instabase.host*`.
 
-<img width="538" alt="image" src="https://github.com/pseuxide/react-inspector/assets/33578715/831dfe28-b849-4915-b647-9ecd45612f4f">
+<img width="538" alt="image" src="https://github.com/pseuxide/react-inspector/assets/33578715/1cc7674e-3112-4c25-acf2-fa2d0dc27e8e">
 
 # React Inspector
 
