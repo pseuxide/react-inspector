@@ -1,12 +1,12 @@
 # pseuxide's fork - react inspector for docker users
 
-A version which applied shitty workaround of docker path problem for my personal use. It's a dumb way but I'd b ok as long as it works.
+A version which applied shitty workaround of docker path problem for my personal use. It's by no means a perfect way but I'd b ok as long as it works.
 
 As [this issue](https://github.com/hand-dot/react-inspector/issues/3) from original repo states, when u involve docker in ur development, react-inspector might misunderstand the file path depend on ur Dockerfile setting.
 
 I integrated an ugly UI to dynamically correct erroneous docker paths. This ensures path accuracy by substituting incorrect paths with the correct one u specified which effectively solves the docker path problem. up to 3 currently btw.
 
-Specifying the domain, the replacing only takes place when current tab contains that domain in the URL.
+Specifying the domain, the replacing only takes place when current tab contains that domain in the URL. If u dont specify domain, it'll be interpreted as 'every url'.
 
 This image is an example of my configuration which will alter the part `/app` with `/Users/pseuxide/works/instabase` of the file path only when im working on `*instabase.host*`.
 
