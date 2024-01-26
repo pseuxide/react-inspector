@@ -11,6 +11,45 @@ let inspecting = false;
 let openInEditorUrl = DEFAULT_OPEN_IN_EDITOR_URL;
 const mousePos = { x: 0, y: 0 };
 let openInEditorMethod = 'url';
+let domain1 = '';
+let replacee1 = '';
+let replacer1 = '';
+let domain2 = '';
+let replacee2 = '';
+let replacer2 = '';
+let domain3 = '';
+let replacee3 = '';
+let replacer3 = '';
+
+const parseFilename = (filename: string | undefined, currentTabUrl: string) => {
+
+  if (!filename) {
+    return filename;
+  }
+
+  let parsedFilename = filename;
+
+  const replacements = [
+    { domain: domain1, replacee: replacee1, replacer: replacer1 },
+    { domain: domain2, replacee: replacee2, replacer: replacer2 },
+    { domain: domain3, replacee: replacee3, replacer: replacer3 },
+  ];
+
+  if (domain1 === '' && replacee1 && replacer1) {
+    if (filename.startsWith(replacee1)) {
+      parsedFilename = parsedFilename.replace(replacee1, replacer1);
+    }
+  } else {
+    replacements.forEach(({ domain, replacee, replacer }) => {
+      if (currentTabUrl.includes(domain) && filename.startsWith(replacee)) {
+        parsedFilename = parsedFilename.replace(replacee, replacer);
+      }
+    });
+  }
+
+  return parsedFilename;
+};
+
 
 const getInspectName = (element: HTMLElement) => {
   const fiber = findFiberByHostInstance(element);
@@ -74,6 +113,7 @@ const handleInspectorClick = async (e: MouseEvent) => {
   target.id = tmpId;
   window.postMessage("inspected", "*");
 
+  fiber._debugSource.fileName = parseFilename(fiber._debugSource.fileName, window.location.href);
   const deepLink = getEditorLink(openInEditorUrl, fiber._debugSource)
   if(openInEditorMethod === 'fetch'){
     fetch(deepLink);
@@ -101,6 +141,15 @@ window.addEventListener("message", ({ data }) => {
   if (data.type === "options" && data.openInEditorUrl) {
     openInEditorUrl = data.openInEditorUrl;
     openInEditorMethod = data.openInEditorMethod;
+    domain1 = data.domain1;
+    replacee1 = data.replacee1;
+    replacer1 = data.replacer1;
+    domain2 = data.domain2;
+    replacee2 = data.replacee2;
+    replacer2 = data.replacer2;
+    domain3 = data.domain3;
+    replacee3 = data.replacee3;
+    replacer3 = data.replacer3;
   }
 });
 

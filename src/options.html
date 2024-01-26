@@ -20,7 +20,7 @@
         align-items: center;
       }
 
-      label{
+      label, .replace-block{
         width:100%;
         max-width: 500px;
         margin-bottom: 2px;
@@ -30,13 +30,17 @@
 
       input[type="text"] {
         padding: 7px;
-        width:100%;
+        width: 100%;
         border-color: #afafaf;
         outline:none;
         border-width: 1px;
         border-radius: 4px;
         border-style: solid;
         transition: box-shadow ease-out 100ms;
+      }
+
+      .replace-block input[type="text"]{
+        width: 90%;
       }
 
       input:hover {
@@ -99,6 +103,16 @@
         font-size: 14px;
       }
 
+      #replace {
+        margin-top: 20px;
+      }
+
+      .replace-block {
+        display: flex;
+        margin-bottom: 20px;
+        margin-top:5px;
+      }
+
     </style>
   </head>
   <body class="bg-blue-900">
@@ -125,6 +139,86 @@
           <option value="fetch">Call with fetch</option>
         </select>
       </label>
+      <div id="replace">
+        <label>
+          if domain contains
+          <input
+            id="domain1"
+            type="text"
+            placeholder="localhost:3000"
+          />
+        </label>
+        <div class="replace-block">
+          <label>
+            replace following prefix:
+            <input
+              id="replacee1"
+              type="text"
+              placeholder="/app"
+            />
+          </label>
+          <label>
+            with:
+            <input
+              id="replacer1"
+              type="text"
+              placeholder="/Users/username/works/projectname"
+            />
+          </label>
+        </div>
+        <label>
+          if domain contains
+          <input
+            id="domain2"
+            type="text"
+            placeholder="localhost:3000"
+          />
+        </label>
+        <div class="replace-block">
+          <label>
+            replace following prefix:
+            <input
+              id="replacee2"
+              type="text"
+              placeholder="/app"
+            />
+          </label>
+          <label>
+            with:
+            <input
+              id="replacer2"
+              type="text"
+              placeholder="/Users/username/works/projectname"
+            />
+          </label>
+        </div>
+        <label>
+          if domain contains
+          <input
+            id="domain3"
+            type="text"
+            placeholder="localhost:3000"
+          />
+        </label>
+        <div class="replace-block">
+          <label>
+            replace following prefix:
+            <input
+              id="replacee3"
+              type="text"
+              placeholder="/app"
+            />
+          </label>
+          <label>
+            with:
+            <input
+              id="replacer3"
+              type="text"
+              placeholder="/Users/username/works/projectname"
+            />
+          </label>
+        </div>
+      </div>
       <button class="primary" id="save" style="margin-top:1rem">Save</button>
       <div id="status"></div>
     </div>

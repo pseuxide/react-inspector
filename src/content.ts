@@ -11,7 +11,7 @@ script.onload = () => {
     if (request === "inspect") {
       window.postMessage(request, "*");
       chrome.storage.sync.get(
-        { openInEditorUrl: DEFAULT_OPEN_IN_EDITOR_URL, openInEditorMethod:'url' },
+        { openInEditorUrl: DEFAULT_OPEN_IN_EDITOR_URL, openInEditorMethod:'url', domain1:'', replacee1:'', replacer1:'', domain2:'', replacee2:'', replacer2:'', domain3:'', replacee3:'', replacer3:'' },
         (items) => {
           window.postMessage({ type: "options", ...items }, "*");
         }
