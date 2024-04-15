@@ -1,10 +1,21 @@
 # pseuxide's fork - react inspector for docker users
 
-A version which applied shitty workaround of docker path problem for my personal use. It's by no means a perfect way but I'd b ok as long as it works.
+A version which applied workaround of docker path problem for my personal use. It's by no means a perfect way but I'd b ok as long as it works.
+
+## how to use
+
+```Shell
+npm i
+npm run build
+```
+
+then go to chrome extension manager and load `dest/` directory just generated.
+
+## what is this and how to configure
 
 As [this issue](https://github.com/hand-dot/react-inspector/issues/3) from original repo states, when u involve docker in ur development, react-inspector might misunderstand the file path depend on ur Dockerfile setting.
 
-I integrated an ugly UI to dynamically correct erroneous docker paths. This ensures path accuracy by substituting incorrect paths with the correct one u specified which effectively solves the docker path problem. up to 3 currently btw.
+I integrated new option to dynamically correct erroneous docker paths. This ensures path accuracy by substituting incorrect paths with the correct one u specified which effectively solves the docker path problem.
 
 Specifying the domain, the replacing only takes place when current tab contains that domain in the URL. If u dont specify domain, it'll be interpreted as 'every url'.
 
